@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
-const ALLOWED_DOMAINS = ['zongolica.tecnm.mx', 'itszongolica.edu.mx']
+const ALLOWED_DOMAINS = ['zongolica.tecnm.mx', 'itszongolica.edu.mx', 'cle.zongolica.tecnm.mx']
 
 function getAdminClient() {
   return createClient(

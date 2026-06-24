@@ -133,6 +133,9 @@ function LoginContent() {
               <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200 font-mono text-xs">
                 @itszongolica.edu.mx
               </Badge>
+              <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200 font-mono text-xs">
+                @cle.zongolica.tecnm.mx
+              </Badge>
             </div>
           </div>
 
