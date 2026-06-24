@@ -241,7 +241,7 @@ export default function LandingPage() {
           </div>
 
           <p className="text-xs font-bold text-teal-700 uppercase tracking-[0.18em] mb-4">
-            Capacitación Docente · 2025
+            Capacitación Docente · 2026
           </p>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-4 max-w-2xl">
