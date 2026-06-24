@@ -176,10 +176,18 @@ export default function RegistroPage() {
     }))
   }
 
+  function toggleCampus(u: string) {
+    const current = data.campus ? data.campus.split(', ') : []
+    const updated = current.includes(u)
+      ? current.filter((c) => c !== u)
+      : [...current, u]
+    set('campus', updated.join(', '))
+  }
+
   function validateScreen(): boolean {
     if (screen === 0) {
       if (!data.nombre.trim()) { toast.error('Ingresa tu nombre completo'); return false }
-      if (!data.campus)        { toast.error('Selecciona tu unidad académica'); return false }
+      if (!data.campus)        { toast.error('Selecciona al menos una unidad académica'); return false }
       if (!data.materias.trim()){ toast.error('Indica las materias que impartes'); return false }
     }
     if (screen === 8) {
@@ -302,22 +310,29 @@ export default function RegistroPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label className="text-gray-700 text-sm font-semibold">Unidad académica *</Label>
+                    <div className="flex items-baseline justify-between">
+                      <Label className="text-gray-700 text-sm font-semibold">Unidad académica *</Label>
+                      <span className="text-xs text-gray-400">Puedes seleccionar varias</span>
+                    </div>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                      {UNIDADES.map((u) => (
-                        <button
-                          key={u}
-                          type="button"
-                          onClick={() => set('campus', u)}
-                          className={`px-3 py-2.5 rounded-xl border-2 text-sm font-semibold transition-all cursor-pointer text-left ${
-                            data.campus === u
-                              ? 'border-teal-500 bg-teal-50 text-teal-800'
-                              : 'border-gray-200 bg-white text-gray-600 hover:border-teal-300'
-                          }`}
-                        >
-                          {u}
-                        </button>
-                      ))}
+                      {UNIDADES.map((u) => {
+                        const selected = data.campus.split(', ').filter(Boolean).includes(u)
+                        return (
+                          <button
+                            key={u}
+                            type="button"
+                            onClick={() => toggleCampus(u)}
+                            className={`px-3 py-2.5 rounded-xl border-2 text-sm font-semibold transition-all cursor-pointer text-left flex items-center gap-2 ${
+                              selected
+                                ? 'border-teal-500 bg-teal-50 text-teal-800'
+                                : 'border-gray-200 bg-white text-gray-600 hover:border-teal-300'
+                            }`}
+                          >
+                            {selected && <Check className="w-3.5 h-3.5 shrink-0 text-teal-600" />}
+                            {u}
+                          </button>
+                        )
+                      })}
                     </div>
                   </div>
 
