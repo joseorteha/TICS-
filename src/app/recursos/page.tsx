@@ -524,9 +524,6 @@ export default function RecursosPage() {
 
       {/* Footer */}
       <footer className="border-t border-border/60 bg-white/60 mt-16">
-        <div className="w-full overflow-hidden h-12">
-          <Image src="/pleca_tecnm.jpg" alt="TecNM" width={1440} height={48} className="w-full h-full object-cover" />
-        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <Image src="/logo-itsz.svg" alt="ITSZ" width={28} height={28} className="object-contain" />
