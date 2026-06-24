@@ -33,6 +33,12 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Google OAuth credentials (contains client_secret — never commit)
+googleauth.json
+
+# Zed agent config
+.claude/
+
 # vercel
 .vercel
 
