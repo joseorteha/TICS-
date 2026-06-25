@@ -59,6 +59,7 @@ import {
   RefreshCw,
   BarChart3,
   ArrowUpRight,
+  Download,
 } from "lucide-react";
 
 const NIVEL_LABELS = ["Nunca", "Básico", "Intermedio", "Experto"];
@@ -206,6 +207,16 @@ export default function DashboardPage() {
               </div>
             </div>
             <div className="flex items-center gap-2 sm:gap-3">
+              <a href={`/api/export?key=${PASSWORD}`} download>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="border-emerald-600/40 text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700"
+                >
+                  <Download className="w-3.5 h-3.5 sm:mr-1.5" />
+                  <span className="hidden sm:inline">Exportar Excel</span>
+                </Button>
+              </a>
               <Button
                 variant="outline"
                 size="sm"
